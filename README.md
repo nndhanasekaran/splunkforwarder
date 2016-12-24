@@ -42,12 +42,17 @@ splunkforwarder rpm file and its location
 
 ### Beginning with splunk
 
-The very basic steps needed for a user to get the module up and running.
+The very basic steps needed to get the module up and running.
 ```ruby
-   class { 'splunkuf' : }
-```
+   class { 'splunkuf::package' :
+     targeturi      => 'yourdeploymentservername:8089',
+     rpmsrc         => 'http://<splunkforwarder>.rpm',
+   }
+   class { 'splunkuf::service': }
+ ```
 ## Usage
 
+To stop service
 ```ruby
    class { 'splunkuf::service' :
      service_ensure => 'stopped',
