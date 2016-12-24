@@ -48,11 +48,12 @@ The very basic steps needed for a user to get the module up and running.
 
 ## Usage
 
+```ruby
    class { 'splunkuf::service' :
      service_ensure => 'stopped',
      service_enable => false,
     }
-    
+```
 ## Reference
 
 Other parameters that can be modified
