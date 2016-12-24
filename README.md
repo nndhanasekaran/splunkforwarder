@@ -55,14 +55,15 @@ The very basic steps needed for a user to get the module up and running.
     
 ## Reference
 
-  $targeturi      = 'deploymentserver.example.com:8089',
-  $mgmthostport   = undef,
-  $rpmsrc         = 'http://deploymentserver.example.com:8000/splunk/splunkforwarder-latest.rpm',
-  $system_user    = 'splunk',
-  $splunk_home    = '/home/splunk',
-  $package_ensure = 'installed',
-  $service_ensure = 'running',
-  $service_enable = true
+Other parameters that can be modified
+  $targeturi      = 'deploymentserver.example.com:8089', <br>
+  $mgmthostport   = undef, <br>
+  $rpmsrc         = 'http://deploymentserver.example.com:8000/splunk/splunkforwarder-latest.rpm', <br>
+  $system_user    = 'splunk', <br>
+  $splunk_home    = '/home/splunk', <br> 
+  $package_ensure = 'installed', <br>
+  $service_ensure = 'running', <br>
+  $service_enable = true, <br>
 
 ## Limitations
 
