@@ -15,65 +15,63 @@
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+This module will install, configure and manage splunk universal forwarder. Uses rpm to install the splunk forwarder.
+It is compatible for RedHat 5, 6 & 7. 
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology
-the module integrates with and what that integration enables. This section
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?"
-
-If your module has a range of functionality (installation, configuration,
-management, etc.) this is the time to mention it.
+It will create splunk user, then it will install splunk universal forwarder from rpm (not from yum). 
+Default it will install in /home/splunk location, used --prefix=/home/splunk as install_options.
+Then creates sym link from /opt/splunkforwarder to /home/splunk/splunkforwarder.
+Change the default password after installing package first time.
+Make sure splunk_bindip parameter in splunk-launch.conf present.
+Create init.d script from template.
+Last it will make sure splunk service is up and running always.
 
 ## Setup
 
 ### What splunk affects
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form.
+/home/splunk
+/opt/splunkforwarder/*
+/etc/init.d/splunk
 
 ### Setup Requirements **OPTIONAL**
 
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
+splunkforwarder rpm location
 
 ### Beginning with splunk
 
 The very basic steps needed for a user to get the module up and running.
 
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
+   class { 'splunkuf' : }
 
 ## Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing
-the fancy stuff with your module here.
-
+   class { 'splunkuf::service' :
+     service_ensure => 'stopped',
+     service_enable => false,
+    }
+    
 ## Reference
 
-Here, list the classes, types, providers, facts, etc contained in your module.
-This section should include all of the under-the-hood workings of your module so
-people know what the module is touching on their system but don't need to mess
-with things. (We are working on automating this section!)
+  $targeturi      = 'deploymentserver.example.com:8089',
+  $mgmthostport   = undef,
+  $rpmsrc         = 'http://deploymentserver.example.com:8000/splunk/splunkforwarder-latest.rpm',
+  $system_user    = 'splunk',
+  $splunk_home    = '/home/splunk',
+  $package_ensure = 'installed',
+  $service_ensure = 'running',
+  $service_enable = true
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+Tested on RedHat/CentOS 5, 6 & 7
 
 ## Development
 
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
+Working on to add yum installation to install in different location
 
 ## Release Notes/Contributors/Etc **Optional**
 
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You may also add any additional sections you feel are
-necessary or important to include here. Please use the `## ` header.
+
