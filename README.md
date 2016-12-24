@@ -43,9 +43,9 @@ splunkforwarder rpm file and its location
 ### Beginning with splunk
 
 The very basic steps needed for a user to get the module up and running.
-
+```ruby
    class { 'splunkuf' : }
-
+```
 ## Usage
 
 ```ruby
@@ -57,6 +57,7 @@ The very basic steps needed for a user to get the module up and running.
 ## Reference
 
 Other parameters that can be modified
+  ```
   $targeturi      = 'deploymentserver.example.com:8089', <br>
   $mgmthostport   = undef, <br>
   $rpmsrc         = 'http://deploymentserver.example.com:8000/splunk/splunkforwarder-latest.rpm', <br>
@@ -65,15 +66,13 @@ Other parameters that can be modified
   $package_ensure = 'installed', <br>
   $service_ensure = 'running', <br>
   $service_enable = true, <br>
-
+```
 ## Limitations
 
 Tested on RedHat/CentOS 5, 6 & 7
 
 ## Development
 
-Working on to add yum installation to install in different location
-
-## Release Notes/Contributors/Etc **Optional**
+Working on to add yum installation method to install in different location
 
 
