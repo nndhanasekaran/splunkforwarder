@@ -1,7 +1,7 @@
 class splunkuf::package (
-  $targeturi      = 'splunk-ds.tivo.com:8089',
+  $targeturi      = 'yourdeploymentsever.example.com:8089',
   $mgmthostport   = undef,
-  $rpmsrc         = 'http://spacewalk.tivo.com/repos/tivo/splunk/splunkforwarder-latest.rpm',
+  $rpmsrc         = 'http://<rpmpath>',
   $splunk_home    = $splunkuf::user::splunk_home,
   $system_user    = 'splunk',
   $splunk_home    = '/home/splunk',
@@ -66,7 +66,7 @@ class splunkuf::package (
   }
 
   exec { 'change_default_pwd' :
-    command      => '/opt/splunkforwarder/bin/splunk edit user admin -password "0EMyS9k&9Om74d" -role admin -auth admin:changeme --no-prompt --answer-yes',
+    command      => '/opt/splunkforwarder/bin/splunk edit user admin -password "newpassword" -role admin -auth admin:changeme',
     subscribe    => File[ '/opt/splunkforwarder' ],
     refreshonly  => true,
   }
