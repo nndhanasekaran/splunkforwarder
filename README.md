@@ -20,9 +20,9 @@ It is compatible for RedHat 5, 6 & 7.
 
 ## Module Description
 
-It will create splunk user, then it will install splunk universal forwarder from rpm (not from yum). 
-Default it will install in /home/splunk location, used --prefix=/home/splunk as install_options.
-Then creates sym link from /opt/splunkforwarder to /home/splunk/splunkforwarder.
+It will create splunk user, then it will install splunk universal forwarder from rpm (not from yum). <br>
+Default it will install in /home/splunk location, used --prefix=/home/splunk as install_options. <br>
+Then creates sym link from /opt/splunkforwarder to /home/splunk/splunkforwarder. <br>
 Change the default password after installing package first time.
 Make sure splunk_bindip parameter in splunk-launch.conf present.
 Create init.d script from template.
