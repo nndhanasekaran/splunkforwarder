@@ -1,8 +1,8 @@
 {
-  "name": "tivo-splunk",
+  "name": "nndhanasekaran-splunk",
   "version": "0.1.0",
-  "author": "tivo",
-  "summary": "To manage splunk universal forwarder in linux servers",
+  "author": "nndhanasekaran",
+  "summary": "To install & manage splunk universal forwarder in linux servers",
   "license": "Apache 2.0",
   "source": "",
   "issues_url": null,
