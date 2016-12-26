@@ -81,5 +81,4 @@ class splunkuf::package (
       require    => Package['splunkforwarder'],
     }
   }
-  contain splunkuf::service
 } 
